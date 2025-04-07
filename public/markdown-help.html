@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Markdown Help</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    textarea {
+      width: 100%;
+      height: 150px;
+      margin-top: 10px;
+      font-family: monospace;
+    }
+    .preview {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-top: 10px;
+      background-color: #f9f9f9;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    table, th, td {
+      border: 1px solid #aaa;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="markdown-help.html">Markdown_Help</a></li>
+      <li><a href="add.html">Add Note</a></li>
+      <li><a href="notes.html">Notes</a></li>
+      <li><a href="about.html">About</a></li>
+      
+    </ul>
+  </nav>
+
+  <h1>📝 Markdown Help</h1>
+  <p>You can use <strong>Markdown</strong> to format your notes! Here's a quick reference:</p>
+
+  <table>
+    <tr>
+      <th>Markdown</th>
+      <th>Result</th>
+    </tr>
+    <tr>
+      <td>`**bold**`</td>
+      <td><strong>bold</strong></td>
+    </tr>
+    <tr>
+      <td>`*italic*`</td>
+      <td><em>italic</em></td>
+    </tr>
+    <tr>
+      <td>`# Heading 1`</td>
+      <td><h3>Heading 1</h3></td>
+    </tr>
+    <tr>
+      <td>`- List item`</td>
+      <td><ul><li>List item</li></ul></td>
+    </tr>
+    <tr>
+      <td>`[Link](https://example.com)`</td>
+      <td><a href="https://example.com" target="_blank">Link</a></td>
+    </tr>
+    <tr>
+      <td>`` `inline code` ``</td>
+      <td><code>inline code</code></td>
+    </tr>
+  </table>
+
+  <h2>🧪 Try it Yourself</h2>
+  <p>Type Markdown below to see a live preview:</p>
+
+  <textarea id="markdownInput" placeholder="Type your markdown here..."># Hello Markdown!
+
+This is **bold**, *italic*, and a list:
+- One
+- Two
+- Three
+
+[Visit Google](https://google.com)
+</textarea>
+
+  <h3>Preview:</h3>
+  <div id="preview" class="preview"></div>
+
+  <script>
+    const textarea = document.getElementById('markdownInput');
+    const preview = document.getElementById('preview');
+
+    function updatePreview() {
+      const markdownText = textarea.value;
+      preview.innerHTML = marked.parse(markdownText);
+    }
+
+    textarea.addEventListener('input', updatePreview);
+    updatePreview(); // Initial render
+  </script>
+</body>
+</html>

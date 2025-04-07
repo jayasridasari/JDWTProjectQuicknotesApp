@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickNotes - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="markdown-help.html">Markdown_Help</a></li>
+      <li><a href="add.html">Add Note</a></li>
+      <li><a href="notes.html">Notes</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <img src="image1.png.png" alt="Notes Illustration" class="hero-img">
+    
+    <div class="hero-text">
+      <h1>Welcome to <span class="highlight">QuickNotes</span></h1>
+      <p>Create, tag, and search your notes with ease — Markdown supported!</p>
+      <a href="add.html" class="btn">+ Add Note</a>
+      <a href="notes.html" class="btn-secondary">📒 View Notes</a>
+    </div>
+  </header>
+
+  <section class="features">
+    <h2>📌 Features</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>📝 Rich Notes</h3>
+        <p>Write your thoughts using Markdown for formatting.</p>
+      </div>
+      <div class="feature">
+        <h3>🔖 Tags</h3>
+        <p>Organize your notes using custom tags.</p>
+      </div>
+      <div class="feature">
+        <h3>🔍 Search</h3>
+        <p>Instantly find notes using tag-based search.</p>
+      </div>
+      <div class="feature">
+        <h3>✏️ Edit/Delete</h3>
+        <p>Full control over your notes — update or remove them anytime.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="markdown-preview">
+    <h2>🧠 Markdown Tips</h2>
+    <div class="markdown-box">
+      <pre><code>**Bold Text**
+*Italic Text*
+[Link](https://example.com)
+- List item
+1. Ordered item
+`inline code`
+</code></pre>
+      <div class="rendered">
+        <p><strong>Bold Text</strong><br>
+        <em>Italic Text</em><br>
+        <a href="https://example.com" target="_blank">Link</a><br>
+        • List item<br>
+        1. Ordered item<br>
+        <code>inline code</code></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Created by Jayasri • Built with 💚 using Express.js & MongoDB</p>
+  </footer>
+</body>
+</html>
