@@ -1,3 +1,7 @@
+const cors = require('cors');
+app.use(cors({
+  origin: 'https://jdwt-project-quicknotes-app.vercel.app'
+}));
 
 const express = require('express');
 const mongoose = require('mongoose');
