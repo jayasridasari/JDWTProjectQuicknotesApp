@@ -1,14 +1,13 @@
-const cors = require('cors');
-app.use(cors({
-  origin: 'https://jdwt-project-quicknotes-app.vercel.app'
-}));
+
 
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const path = require('path');
 
 const app = express();
+app.use(cors());
 const PORT = 3000;
 
 mongoose.connect(process.env.MONGO_URI)
