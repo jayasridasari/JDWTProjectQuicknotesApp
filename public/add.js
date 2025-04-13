@@ -13,7 +13,7 @@ document.getElementById('noteForm').addEventListener('submit', async function (e
   const content = contentInput.value;
   const tags = document.getElementById('tags').value.split(',').map(tag => tag.trim());
 
-  const response = await fetch('/api/notes', {
+  const response = await fetch('https://jdwtprojectquicknotesapp.onrender.com/api/notes', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
