@@ -12,14 +12,14 @@ let currentEditId = null;
 // const note = await res.json();
 
 async function fetchNotes() {
-  const res = await fetch('/api/notes');
+  const res = await fetch('https://jdwtprojectquicknotesapp.onrender.com/api/notes');
   const notes = await res.json();
   displayNotes(notes);
 }
 
 async function searchNotes() {
   const tag = document.getElementById('searchInput').value.trim();
-  const res = await fetch(`/api/notes/search?tag=${tag}`);
+  const res = await fetch(`https://jdwtprojectquicknotesapp.onrender.com/api/notes/search?tag=${tag}`);
   const notes = await res.json();
   displayNotes(notes);
 }
@@ -54,12 +54,12 @@ async function updateField(id, field, value) {
   const el = document.querySelector(`[onblur*="${id}"]`);
   const rawContent = el?.getAttribute('data-raw') || value;
 
-  const res = await fetch(`/api/notes/${id}`);
+  const res = await fetch(`https://jdwtprojectquicknotesapp.onrender.com/api/notes/${id}`);
   const note = await res.json();
 
   note[field] = field === 'content' ? rawContent : value;
 
-  await fetch(`/api/notes/${id}`, {
+  await fetch(`https://jdwtprojectquicknotesapp.onrender.com/api/notes/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(note)
@@ -72,12 +72,12 @@ async function updateField(id, field, value) {
 
 async function updateTags(id, text) {
   const tags = text.replace('Tags:', '').split(',').map(tag => tag.trim());
-  const res = await fetch(`/api/notes/${id}`);
+  const res = await fetch(`https://jdwtprojectquicknotesapp.onrender.com/api/notes/${id}`);
   const note = await res.json();
 
   note.tags = tags;
 
-  await fetch(`/api/notes/${id}`, {
+  await fetch(`https://jdwtprojectquicknotesapp.onrender.com/api/notes/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(note)
@@ -86,7 +86,7 @@ async function updateTags(id, text) {
 
 async function deleteNote(id) {
   if (confirm('Are you sure you want to delete this note?')) {
-    await fetch(`/api/notes/${id}`, { method: 'DELETE' });
+    await fetch(`https://jdwtprojectquicknotesapp.onrender.com/api/notes/${id}`, { method: 'DELETE' });
     fetchNotes();
   }
 }
@@ -94,7 +94,7 @@ async function openEdit(id) {
   console.log('Editing note:', id);
   currentEditId = id;
 
-  const res = await fetch(`/api/notes/${id}`);
+  const res = await fetch(`https://jdwtprojectquicknotesapp.onrender.com/api/notes/${id}`);
   const note = await res.json();
 
   document.getElementById('editTitle').value = note.title;
@@ -114,7 +114,7 @@ async function saveEdit() {
   const content = document.getElementById('editContent').value;
   const tags = document.getElementById('editTags').value.split(',').map(tag => tag.trim());
 
-  await fetch(`/api/notes/${currentEditId}`, {
+  await fetch(`https://jdwtprojectquicknotesapp.onrender.com/api/notes/${currentEditId}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ title, content, tags })
